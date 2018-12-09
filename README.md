@@ -2,7 +2,7 @@
 
 SensorApp
 
-Access and acquiring raw sensor data of following sensors:
+Acquiring raw sensor data of following sensors:
 
 Motion sensors:
     - accelerometer
