@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:screenOrientation="landscape"
+    tools:context=".PositionSensorsActivity">
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TableRow android:gravity="center_vertical">
+            <Button
+                android:layout_marginTop="10dp"
+                android:id="@+id/pos"
+                android:textSize="15sp"
+                android:textColor="#cccccc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="goToMotionSensors"
+                android:text="MOTION SENSORS" />
+
+            <Button
+                android:layout_marginTop="10dp"
+                android:id="@+id/env"
+                android:textSize="15sp"
+                android:textColor="#cccccc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="goToEnvironmentSensors"
+                android:text="ENVIRONMENT SENSORS" />
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="POSITION SENSORS"
+        android:textStyle="bold"
+        android:textColor="#262626"
+        android:layout_marginTop="20dp"
+        />
+
+            <TextView
+                android:id="@+id/gameRotationVector"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GAME ROT. VEC. : : 0 0 0 "
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#262626"
+                />
+            <TextView
+                android:id="@+id/geomagneticRotationVector"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GEOMAGNETIC ROT. VEC. : 0 0 0 "
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#262626"
+                />
+            <TextView
+                android:id="@+id/magneticField"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MAGNETIC FIELD [μT] : 0 0 0 "
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#262626"
+                />
+            <TextView
+                android:id="@+id/proximity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PROXIMITY [cm] : 0 "
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#262626"
+                />
+            <TextView
+                android:id="@+id/magneticFieldUncalibrated"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MAGNETIC FIELD UNC.[μT] : 0 0 0 0 0 "
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#262626"
+                />
+
+    <Button
+        android:layout_marginTop="10dp"
+        android:id="@+id/button"
+        android:textSize="15sp"
+        android:textColor="#cccccc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="startSenPos"
+        android:text="START" />
+
+
+</LinearLayout>

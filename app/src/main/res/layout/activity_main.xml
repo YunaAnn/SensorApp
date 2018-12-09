@@ -1,19 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:screenOrientation="landscape"
     tools:context=".MainActivity">
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <TableRow android:gravity="center_vertical">
+    <Button
+        android:layout_marginTop="10dp"
+        android:id="@+id/pos"
+        android:textSize="15sp"
+        android:textColor="#cccccc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="goToPositionSensors"
+        android:text="POSITION SENSORS" />
+
+    <Button
+        android:layout_marginTop="10dp"
+        android:id="@+id/env"
+        android:textSize="15sp"
+        android:textColor="#cccccc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="goToEnvironmentSensors"
+        android:text="ENVIRONMENT SENSORS" />
+    </TableRow>
+    </TableLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="MOTION SENSORS"
+        android:textStyle="bold"
+        android:textColor="#262626"
+        android:layout_marginTop="20dp"
+        />
 
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:id="@+id/accelerometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ACCELEROMETER [m/s2] : 0 0 0 "
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:textColor="#262626"
+            />
+            <TextView
+                android:id="@+id/accelerometerUncalibrated"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ACC. UNC.[m/s2] : 0 0 0 0 0 "
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#262626"
+                />
+            <TextView
+                android:id="@+id/gyroscope"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GYROSCOPE [rad/s] : 0 0 0 "
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#262626"
+                />
+            <TextView
+                android:id="@+id/gyroscopeUncalibrated"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GYROSCOPE UNC.[rad/s] : 0 0 0 "
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#262626"
+                />
+            <TextView
+                android:id="@+id/gravity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="GRAVITY [m/s2] : 0 0 0 "
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#262626"
+                />
+            <TextView
+                android:id="@+id/linearAcceleration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LINEAR ACCELERATION [m/s2] : 0 0 0 "
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#262626"
+                />
+            <TextView
+                android:id="@+id/rotationVector"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ROTATION VEC. : 0 0 0 0 "
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#262626"
+                />
+            <TextView
+                android:id="@+id/stepCounter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="STEP COUNTER : 0 "
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#262626"
+                />
+
+    <Button
+        android:layout_marginTop="10dp"
+        android:id="@+id/button"
+        android:textSize="15sp"
+        android:textColor="#cccccc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="startSenMot"
+        android:text="START" />
+
+
+</LinearLayout>

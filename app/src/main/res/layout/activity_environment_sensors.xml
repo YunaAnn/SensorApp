@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:screenOrientation="landscape"
+    tools:context=".EnvironmentSensorsActivity">
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TableRow android:gravity="center_vertical">
+            <Button
+                android:layout_marginTop="10dp"
+                android:id="@+id/pos"
+                android:textSize="15sp"
+                android:textColor="#cccccc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="goToMotionSensors"
+                android:text="MOTION SENSORS" />
+
+            <Button
+                android:layout_marginTop="10dp"
+                android:id="@+id/env"
+                android:textSize="15sp"
+                android:textColor="#cccccc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="goToPositionSensors"
+                android:text="POSITION SENSORS" />
+        </TableRow>
+    </TableLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ENVIRONMENT SENSORS"
+        android:textStyle="bold"
+        android:textColor="#262626"
+        android:layout_marginTop="20dp"
+        />
+
+            <TextView
+                android:id="@+id/ambientTemperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AMBIENT TEMPERATURE [°C] : 0 "
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#262626"
+                />
+            <TextView
+                android:id="@+id/light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="LIGHT [lx] : 0  "
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#262626"
+                />
+            <TextView
+                android:id="@+id/pressure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PRESSURE [hPa] : 0 "
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#262626"
+                />
+            <TextView
+                android:id="@+id/relativeHumidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="RELATIVE HUMIDITY [%] : 0 "
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#262626"
+                />
+
+
+    <Button
+        android:layout_marginTop="10dp"
+        android:id="@+id/button"
+        android:textSize="15sp"
+        android:textColor="#cccccc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="startSenEnv"
+        android:text="START" />
+
+
+</LinearLayout>
