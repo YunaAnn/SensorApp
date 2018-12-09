@@ -12,7 +12,7 @@ Motion sensors:
     - gyroscope uncalibrated
     - linear acceleration
     - rotation vector
-    - stepc counter
+    - step counter
 
 Position sensors:
 	  - game rotation vector
