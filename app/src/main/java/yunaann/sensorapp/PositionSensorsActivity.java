@@ -9,6 +9,7 @@ import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;;
 
 public class PositionSensorsActivity extends AppCompatActivity implements SensorEventListener
@@ -34,6 +35,7 @@ public class PositionSensorsActivity extends AppCompatActivity implements Sensor
     boolean magFieUncCheck;
     boolean proCheck;
 
+    public static boolean sensingOn = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -54,7 +56,7 @@ public class PositionSensorsActivity extends AppCompatActivity implements Sensor
         proCheck = false;
     }
 
-    public void startSenPos (View view)
+    public void startSensing (View view)
     {
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 
@@ -89,6 +91,35 @@ public class PositionSensorsActivity extends AppCompatActivity implements Sensor
         }
 
     }
+
+    public void stopSensing (View view)
+    {
+        sensorManager.unregisterListener(this,sensorManager.getDefaultSensor(Sensor.TYPE_GAME_ROTATION_VECTOR));
+        sensorManager.unregisterListener(this,sensorManager.getDefaultSensor(Sensor.TYPE_GEOMAGNETIC_ROTATION_VECTOR));
+        sensorManager.unregisterListener(this,sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD));
+        sensorManager.unregisterListener(this,sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD_UNCALIBRATED));
+        sensorManager.unregisterListener(this,sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY));
+    }
+
+    public void clickSen(View view)
+    {
+        if (sensingOn)
+        {
+            Button button = (Button) findViewById(R.id.sensingOn);
+            button.setText("START");
+            stopSensing(view);
+            sensingOn = false;
+        }
+        else
+        {
+            Button button = (Button) findViewById(R.id.sensingOn);
+            startSensing(view);
+            button.setText("STOP");
+            sensingOn = true;
+        }
+    }
+
+
 
     @Override
     public void onSensorChanged(SensorEvent event)

@@ -9,6 +9,7 @@ import android.hardware.SensorManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;;
 
 public class EnvironmentSensorsActivity extends AppCompatActivity implements SensorEventListener
@@ -31,6 +32,7 @@ public class EnvironmentSensorsActivity extends AppCompatActivity implements Sen
     boolean preCheck;
     boolean relHumCheck;
 
+    public static boolean sensingOn = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -49,7 +51,7 @@ public class EnvironmentSensorsActivity extends AppCompatActivity implements Sen
         relHumCheck = false;
     }
 
-    public void startSenEnv (View view)
+    public void startSensing (View view)
     {
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 
@@ -75,6 +77,32 @@ public class EnvironmentSensorsActivity extends AppCompatActivity implements Sen
         if (relativeHumidity!=null)
         {
             sensorManager.registerListener(this, relativeHumidity, SensorManager.SENSOR_DELAY_GAME);
+        }
+    }
+
+    public void stopSensing (View view)
+    {
+        sensorManager.unregisterListener(this,sensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE));
+        sensorManager.unregisterListener(this,sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT));
+        sensorManager.unregisterListener(this,sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE));
+        sensorManager.unregisterListener(this,sensorManager.getDefaultSensor(Sensor.TYPE_RELATIVE_HUMIDITY));
+    }
+
+    public void clickSen(View view)
+    {
+        if (sensingOn)
+        {
+            Button button = (Button) findViewById(R.id.sensingOn);
+            button.setText("START");
+            stopSensing(view);
+            sensingOn = false;
+        }
+        else
+        {
+            Button button = (Button) findViewById(R.id.sensingOn);
+            startSensing(view);
+            button.setText("STOP");
+            sensingOn = true;
         }
     }
 

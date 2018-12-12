@@ -10,6 +10,7 @@ import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;;
 
 public class MainActivity extends AppCompatActivity implements SensorEventListener
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     boolean rotVecCheck;
     boolean steCouCheck;
 
+    public static boolean sensingOn = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -71,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
     }
 
-    public void startSenMot (View view)
+    public void startSensing (View view)
     {
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 
@@ -124,6 +126,38 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         }
     }
 
+    public void stopSensing (View view)
+    {
+        sensorManager.unregisterListener(this,sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER));
+        sensorManager.unregisterListener(this,sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER_UNCALIBRATED));
+        sensorManager.unregisterListener(this,sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE));
+        sensorManager.unregisterListener(this,sensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE_UNCALIBRATED));
+        sensorManager.unregisterListener(this,sensorManager.getDefaultSensor(Sensor.TYPE_GRAVITY));
+        sensorManager.unregisterListener(this,sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION));
+        sensorManager.unregisterListener(this,sensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR));
+        sensorManager.unregisterListener(this,sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER));
+
+
+    }
+
+
+    public void clickSen(View view)
+    {
+        if (sensingOn)
+        {
+            Button button = (Button) findViewById(R.id.sensingOn);
+            button.setText("START");
+            stopSensing(view);
+            sensingOn = false;
+        }
+        else
+        {
+            Button button = (Button) findViewById(R.id.sensingOn);
+            startSensing(view);
+            button.setText("STOP");
+            sensingOn = true;
+        }
+    }
     @Override
     public void onSensorChanged(SensorEvent event)
     {
