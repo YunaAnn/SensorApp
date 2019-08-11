@@ -6,19 +6,15 @@ Acquiring raw sensor data of following sensors:
 
 Motion sensors:
     - accelerometer
-    - accelerometer uncalibrated
     - gravity
     - gyroscope
-    - gyroscope uncalibrated
     - linear acceleration
     - rotation vector
-    - step counter
 
 Position sensors:
 	  - game rotation vector
     - geomagnetic rotation vector
     - magnetic field
-    - magnetic field uncalibrated
     - proximity
 
 Environment sensors:
@@ -26,5 +22,7 @@ Environment sensors:
     - light
     - pressure
     - relative humidity
+	
+Application tested on Motorola Moto G6 Plus.
 
 

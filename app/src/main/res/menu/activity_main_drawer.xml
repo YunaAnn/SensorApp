@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+    <item android:title="@string/app_sensors_menu">
+        <menu>
+            <item
+                android:id="@+id/nav_main"
+                android:title="@string/app_motion_sensors" />
+            <item
+                android:id="@+id/nav_position_sensors"
+                android:title="@string/app_position_sensors" />
+            <item
+                android:id="@+id/nav_environment_sensors"
+                android:title="@string/app_environment_sensors" />
+        </menu>
+    </item>
+    </group>
+</menu>

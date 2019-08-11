@@ -6,13 +6,20 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;;
 
-public class PositionSensorsActivity extends AppCompatActivity implements SensorEventListener
+public class PositionSensorsActivity extends AppCompatActivity  implements SensorEventListener, NavigationView.OnNavigationItemSelectedListener
 {
 
     SensorManager sensorManager;
@@ -20,19 +27,16 @@ public class PositionSensorsActivity extends AppCompatActivity implements Sensor
     Sensor gameRotationVector;
     Sensor geomagneticRotationVector;
     Sensor magneticField;
-    Sensor magneticFieldUncalibrated;
     Sensor proximity;
 
     float [] gamRotVec;
     float [] geoRotVec;
     float [] magFie;
-    float [] magFieUnc;
     float [] pro;
 
     boolean gamRotVecCheck;
     boolean geoRotVecCheck;
     boolean magFieCheck;
-    boolean magFieUncCheck;
     boolean proCheck;
 
     public static boolean sensingOn = false;
@@ -43,16 +47,26 @@ public class PositionSensorsActivity extends AppCompatActivity implements Sensor
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_position_sensors);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        drawer.addDrawerListener(toggle);
+        toggle.syncState();
+
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+
         gameRotationVector = null;
         geomagneticRotationVector = null;
         magneticField = null;
-        magneticFieldUncalibrated = null;
         proximity = null;
 
         gamRotVecCheck = false;
         geoRotVecCheck = false;
         magFieCheck = false;
-        magFieUncCheck = false;
         proCheck = false;
     }
 
@@ -78,12 +92,6 @@ public class PositionSensorsActivity extends AppCompatActivity implements Sensor
             sensorManager.registerListener(this, magneticField, SensorManager.SENSOR_DELAY_GAME);
         }
 
-        this.magneticFieldUncalibrated = sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD_UNCALIBRATED);
-        if (magneticFieldUncalibrated!=null)
-        {
-            sensorManager.registerListener(this, magneticFieldUncalibrated, SensorManager.SENSOR_DELAY_GAME);
-        }
-
         this.proximity = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY);
         if (proximity!=null)
         {
@@ -97,7 +105,6 @@ public class PositionSensorsActivity extends AppCompatActivity implements Sensor
         sensorManager.unregisterListener(this,sensorManager.getDefaultSensor(Sensor.TYPE_GAME_ROTATION_VECTOR));
         sensorManager.unregisterListener(this,sensorManager.getDefaultSensor(Sensor.TYPE_GEOMAGNETIC_ROTATION_VECTOR));
         sensorManager.unregisterListener(this,sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD));
-        sensorManager.unregisterListener(this,sensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD_UNCALIBRATED));
         sensorManager.unregisterListener(this,sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY));
     }
 
@@ -129,7 +136,11 @@ public class PositionSensorsActivity extends AppCompatActivity implements Sensor
             gamRotVec = event.values;
             gamRotVecCheck = true;
             TextView  gamRotVecView = (TextView) findViewById(R.id.gameRotationVector);
-            gamRotVecView.setText("GAME ROT. VEC. : " + gamRotVec[0] + " " + gamRotVec[1] + " " + gamRotVec[2]);
+            TextView  gamRotVecView2 = (TextView) findViewById(R.id.gameRotationVector2);
+            TextView  gamRotVecView3 = (TextView) findViewById(R.id.gameRotationVector3);
+            gamRotVecView.setText("x * sin(θ/2) = " + gamRotVec[0]);
+            gamRotVecView2.setText("y * sin(θ/2) = " + gamRotVec[1]);
+            gamRotVecView3.setText("z * sin(θ/2) = " + gamRotVec[2]);
         }
 
         if (event.sensor.getType() == Sensor.TYPE_GEOMAGNETIC_ROTATION_VECTOR)
@@ -137,7 +148,11 @@ public class PositionSensorsActivity extends AppCompatActivity implements Sensor
             geoRotVec = event.values;
             geoRotVecCheck = true;
             TextView geoRotVecView = (TextView) findViewById(R.id.geomagneticRotationVector);
-            geoRotVecView.setText("GEOMAGNETIC ROT. VEC. : " + geoRotVec[0] + " " + geoRotVec[1] + " " + geoRotVec[2]);
+            TextView geoRotVecView2 = (TextView) findViewById(R.id.geomagneticRotationVector2);
+            TextView geoRotVecView3 = (TextView) findViewById(R.id.geomagneticRotationVector3);
+            geoRotVecView.setText("x * sin(θ/2) = " + geoRotVec[0]);
+            geoRotVecView2.setText("y * sin(θ/2) = " + geoRotVec[1]);
+            geoRotVecView3.setText("z * sin(θ/2) = " + geoRotVec[2]);
         }
 
         if (event.sensor.getType() == Sensor.TYPE_MAGNETIC_FIELD)
@@ -145,16 +160,11 @@ public class PositionSensorsActivity extends AppCompatActivity implements Sensor
             magFie = event.values;
             magFieCheck = true;
             TextView magFieView = (TextView) findViewById(R.id.magneticField);
-            magFieView.setText("MAGNETIC FIELD [μT] : " + Math.round(magFie[0]) + " " + Math.round(magFie[1]) + " " + Math.round(magFie[2]) + " ");
-
-        }
-
-        if (event.sensor.getType() == Sensor.TYPE_MAGNETIC_FIELD_UNCALIBRATED)
-        {
-            magFieUnc = event.values;
-            magFieUncCheck = true;
-            TextView magFieUncView = (TextView) findViewById(R.id.magneticFieldUncalibrated);
-            magFieUncView.setText("MAGNETIC FIELD UNC.[μT] : " + Math.round(magFieUnc[0]) + " " + Math.round(magFieUnc[1]) + " " + Math.round(magFieUnc[2]) + " " + Math.round(magFieUnc[3]) + " " + Math.round(magFieUnc[4]) + " " + Math.round(magFieUnc[5]));
+            TextView magFieView2 = (TextView) findViewById(R.id.magneticField2);
+            TextView magFieView3 = (TextView) findViewById(R.id.magneticField3);
+            magFieView.setText("x = " + magFie[0]);
+            magFieView2.setText("y = " + magFie[1]);
+            magFieView3.setText("z = " + magFie[2]);
         }
 
         if (event.sensor.getType() == Sensor.TYPE_PROXIMITY)
@@ -162,7 +172,7 @@ public class PositionSensorsActivity extends AppCompatActivity implements Sensor
             pro = event.values;
             proCheck = true;
             TextView  proView = (TextView) findViewById(R.id.proximity);
-            proView.setText("PROXIMITY [cm] : " + pro[0] + " ");
+            proView.setText("PROXIMITY [cm] : " + pro[0]);
         }
 
     }
@@ -173,14 +183,50 @@ public class PositionSensorsActivity extends AppCompatActivity implements Sensor
 
     }
 
-    public void goToMotionSensors(View view)
+    @Override
+    public void onBackPressed()
     {
-        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START))
+        {
+            drawer.closeDrawer(GravityCompat.START);
+        } else
+        {
+            super.onBackPressed();
+        }
     }
 
-    public void goToEnvironmentSensors(View view)
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
     {
-        startActivity(new Intent(getApplicationContext(), EnvironmentSensorsActivity.class));
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
+
+    @SuppressWarnings("StatementWithEmptyBody")
+    @Override
+    public boolean onNavigationItemSelected(MenuItem item)
+    {
+        int id = item.getItemId();
+
+        if (id == R.id.nav_main)
+        {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        }
+        else if (id == R.id.nav_position_sensors)
+        {
+            Intent intent = new Intent(this, PositionSensorsActivity.class);
+            startActivity(intent);
+        }
+        else if (id == R.id.nav_environment_sensors)
+        {
+            Intent intent = new Intent(this, EnvironmentSensorsActivity.class);
+            startActivity(intent);
+        }
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 
 }

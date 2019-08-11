@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">SensorApp</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="nav_header_subtitle"> https://github.com/YunaAnn </string>
+    <string name="app_sensors_menu">Sensors</string>
+    <string name="app_position_sensors">Position sensors</string>
+    <string name="app_motion_sensors">Motion sensors</string>
+    <string name="app_environment_sensors">Environment sensors</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="nav_header_title">Android Studio</string>
 </resources>
