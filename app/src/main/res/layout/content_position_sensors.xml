@@ -6,12 +6,12 @@
     android:layout_height="match_parent"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
+    android:background="@color/colorPrimaryDark"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/app_bar_position_sensors"
     tools:context=".PositionSensorsActivity">
 
-    <View style="@style/Divider"/>
 
     <TextView
         android:id="@+id/title"
@@ -19,152 +19,222 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="POSITION SENSORS"
-        android:textColor="#262626"
+        android:textColor="#ffffff"
         android:textSize="18sp"
         android:textStyle="bold" />
-    <View style="@style/Divider"/>
-    <TextView
-        android:id="@+id/gameRotationVectorMain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text=" GAME ROTATION VECTOR"
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-    <TextView
-        android:id="@+id/gameRotationVector"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="x * sin(θ/2) = --- "
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/gameRotationVector2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="y * sin(θ/2) = --- "
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/gameRotationVector3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="z * sin(θ/2) = --- "
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-
-    <View style="@style/Divider"/>
-
-    <TextView
-        android:id="@+id/geomagneticRotationVectorMain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="GEOMAGNETIC ROTATION VECTOR"
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-    <TextView
-        android:id="@+id/geomagneticRotationVector"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="x * sin(θ/2) = --- "
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-    <TextView
-        android:id="@+id/geomagneticRotationVector2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="y * sin(θ/2) = --- "
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-    <TextView
-        android:id="@+id/geomagneticRotationVector3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="z * sin(θ/2) = --- "
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-
-    <View style="@style/Divider"/>
-
-    <TextView
-        android:id="@+id/magneticFieldMain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MAGNETIC FIELD [μT]"
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-    <TextView
-        android:id="@+id/magneticField"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="x = --- "
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-    <TextView
-        android:id="@+id/magneticField2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="y = --- "
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-    <TextView
-        android:id="@+id/magneticField3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="z = --- "
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-
-    <View style="@style/Divider"/>
-
-    <TextView
-        android:id="@+id/proximity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="PROXIMITY [cm] : --- "
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-
-    <View style="@style/Divider"/>
-    <View style="@style/Divider"/>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="5dp" />
 
     <TableLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"/>
+        android:layout_height="wrap_content">
 
-    <TableRow
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/gameRotationVectorMain"
+                android:layout_width="348dp"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text=" GAME ROTATION VECTOR"
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/geomagneticRotationVectorMain"
+                android:layout_width="355dp"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:text="GEOMAGNETIC ROTATION VECTOR"
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/gameRotationVector"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="x * sin(θ/2) = --- "
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/geomagneticRotationVector"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:text="x * sin(θ/2) = --- "
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/gameRotationVector2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="y * sin(θ/2) = --- "
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/geomagneticRotationVector2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="y * sin(θ/2) = --- "
+                android:layout_column="2"
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/gameRotationVector3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="z * sin(θ/2) = --- "
+                android:layout_column="1"
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/geomagneticRotationVector3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="z * sin(θ/2) = --- "
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:layout_column="2"
+                android:textStyle="bold" />
+
+        </TableRow>
+    </TableLayout>
+
+    <Space
+    android:layout_width="match_parent"
+    android:layout_height="10dp" />
+
+    <TableLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/magneticFieldMain"
+                android:layout_width="348dp"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="MAGNETIC FIELD [μT]"
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/proximity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PROXIMITY [cm] : --- "
+                android:textColor="#ffffff"
+                android:layout_column="2"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/magneticField"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="x = --- "
+                android:layout_column="1"
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/magneticField2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="y = --- "
+                android:layout_column="1"
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/magneticField3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="z = --- "
+                android:layout_column="1"
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+
+    </TableLayout>
+
+    <Space
         android:layout_width="match_parent"
-        android:layout_height="47dp"
-        android:gravity="center_vertical">
+        android:layout_height="10dp" />
 
     <Button
         android:id="@+id/sensingOn"
-        android:layout_width="115dp"
-        android:textColor="@color/cardview_light_background"
-        android:layout_height="match_parent"
+        android:layout_width="656dp"
+        android:layout_height="44dp"
         android:backgroundTint="@color/colorPrimary"
         android:onClick="clickSen"
         android:text="Start"
-        android:textAppearance="@style/TextAppearance.AppCompat.Button" />
-
-    </TableRow>
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textColor="@color/cardview_light_background" />
 
 
 </LinearLayout>

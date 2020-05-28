@@ -54,8 +54,8 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle
+                (this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -229,7 +229,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         return true;
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
+
     @Override
     public boolean onNavigationItemSelected(MenuItem item)
     {
@@ -254,6 +254,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-    }
+}
 
 

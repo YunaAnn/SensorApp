@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     android:paddingLeft="10dp"
     android:paddingRight="10dp"
     android:orientation="vertical"
@@ -11,229 +12,315 @@
     tools:showIn="@layout/app_bar_main"
     tools:context=".MainActivity">
 
-    <View style="@style/Divider"/>
-
-    <View style="@style/Divider"/>
-
     <TextView
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="MOTION SENSORS"
-        android:textColor="#262626"
+        android:textColor="#ffffff"
         android:textSize="18sp"
         android:textStyle="bold" />
-    <View style="@style/Divider"/>
-    <TextView
-        android:id="@+id/accelerometerMain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="ACCELEROMETER [m/s2]"
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-    <TextView
-        android:id="@+id/accelerometer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="x = --- "
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-    <TextView
-        android:id="@+id/accelerometer2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="y = --- "
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-    <TextView
-        android:id="@+id/accelerometer3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="z = --- "
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
 
-    <View style="@style/Divider"/>
-
-    <TextView
-        android:id="@+id/gravityMain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="GRAVITY [m/s2]"
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-    <TextView
-        android:id="@+id/gravity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="x = --- "
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-    <TextView
-        android:id="@+id/gravity2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="y = --- "
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-    <TextView
-        android:id="@+id/gravity3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="z = --- "
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-
-    <View style="@style/Divider"/>
-
-    <TextView
-        android:id="@+id/gyroscopeMain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="GYROSCOPE [rad/s]"
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-    <TextView
-        android:id="@+id/gyroscope"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="x = --- "
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-    <TextView
-        android:id="@+id/gyroscope2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="y = --- "
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-    <TextView
-        android:id="@+id/gyroscope3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="z = --- "
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-
-    <View style="@style/Divider"/>
-
-    <TextView
-        android:id="@+id/linearAccelerationMain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="LINEAR ACCELERATION [m/s2]"
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-    <TextView
-        android:id="@+id/linearAcceleration"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="x = --- "
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-    <TextView
-        android:id="@+id/linearAcceleration2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="y = --- "
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-    <TextView
-        android:id="@+id/linearAcceleration3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="z = --- "
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-
-    <View style="@style/Divider"/>
-
-    <TextView
-        android:id="@+id/rotationVectorMain"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ROTATION VECTOR"
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-    <TextView
-        android:id="@+id/rotationVector"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="x * sin(θ/2) = --- "
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-    <TextView
-        android:id="@+id/rotationVector2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="y * sin(θ/2) = --- "
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-    <TextView
-    android:id="@+id/rotationVector3"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:text="z * sin(θ/2) = --- "
-    android:textColor="#262626"
-    android:textSize="12sp"
-    android:textStyle="bold" />
-
-    <TextView
-        android:id="@+id/rotationVector4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="cos(θ/2) = --- "
-        android:textColor="#262626"
-        android:textSize="12sp"
-        android:textStyle="bold" />
-
-    <View style="@style/Divider"/>
-    <View style="@style/Divider"/>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
 
     <TableLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"/>
-
-    <TableRow
         android:layout_width="match_parent"
-        android:layout_height="47dp"
-        android:gravity="center_vertical">
+        android:layout_height="80dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/accelerometerMain"
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="ACCELEROMETER [m/s2]"
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/gravityMain"
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:text="GRAVITY [m/s2]"
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/rotationVectorMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:text="ROTATION VECTOR"
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/accelerometer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="x = --- "
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/gravity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:text="x = --- "
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/rotationVector"
+                android:layout_width="348dp"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:text="x * sin(θ/2) = --- "
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/accelerometer2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="y = --- "
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/gravity2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:text="y = --- "
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/rotationVector2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:text="z * sin(θ/2) = --- "
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/accelerometer3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="z = --- "
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/gravity3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:text="z = --- "
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/rotationVector3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:text="z * sin(θ/2) = --- "
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/rotationVector4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="3"
+                android:text="z * sin(θ/2) = --- "
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+
+        </TableRow>
+
+    </TableLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/gyroscopeMain"
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="GYROSCOPE [rad/s]"
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/linearAccelerationMain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:text="LINEAR ACCELERATION [m/s2]"
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/gyroscope"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="x = --- "
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/linearAcceleration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:text="x = --- "
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/gyroscope2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="y = --- "
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/linearAcceleration2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:text="y = --- "
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/gyroscope3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:text="z = --- "
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/linearAcceleration3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="2"
+                android:text="z = --- "
+                android:textColor="#ffffff"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="10dp" />
 
         <Button
             android:id="@+id/sensingOn"
-            android:layout_width="115dp"
-            android:layout_height="match_parent"
+            android:layout_width="656dp"
+            android:layout_height="44dp"
             android:backgroundTint="@color/colorPrimary"
             android:onClick="clickSen"
             android:text="Start"
             android:textAppearance="@style/TextAppearance.AppCompat.Button"
             android:textColor="@color/cardview_light_background" />
-
-    </TableRow>
-
 
 </LinearLayout>
 

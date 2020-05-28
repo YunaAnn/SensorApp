@@ -50,8 +50,8 @@ public class EnvironmentSensorsActivity extends AppCompatActivity  implements Se
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle
+                (this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -69,44 +69,54 @@ public class EnvironmentSensorsActivity extends AppCompatActivity  implements Se
         relHumCheck = false;
     }
 
-    public void startSensing(View view) {
+    public void startSensing(View view)
+    {
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 
         this.ambientTemperature = sensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
-        if (ambientTemperature != null) {
+        if (ambientTemperature != null)
+        {
             sensorManager.registerListener(this, ambientTemperature, SensorManager.SENSOR_DELAY_GAME);
         }
 
         this.light = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT);
-        if (light != null) {
+        if (light != null)
+        {
             sensorManager.registerListener(this, light, SensorManager.SENSOR_DELAY_GAME);
         }
 
         this.pressure = sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE);
-        if (pressure != null) {
+        if (pressure != null)
+        {
             sensorManager.registerListener(this, pressure, SensorManager.SENSOR_DELAY_GAME);
         }
 
         this.relativeHumidity = sensorManager.getDefaultSensor(Sensor.TYPE_RELATIVE_HUMIDITY);
-        if (relativeHumidity != null) {
+        if (relativeHumidity != null)
+        {
             sensorManager.registerListener(this, relativeHumidity, SensorManager.SENSOR_DELAY_GAME);
         }
     }
 
-    public void stopSensing(View view) {
+    public void stopSensing(View view)
+    {
         sensorManager.unregisterListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_AMBIENT_TEMPERATURE));
         sensorManager.unregisterListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT));
         sensorManager.unregisterListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_PRESSURE));
         sensorManager.unregisterListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_RELATIVE_HUMIDITY));
     }
 
-    public void clickSen(View view) {
-        if (sensingOn) {
+    public void clickSen(View view)
+    {
+        if (sensingOn)
+        {
             Button button = (Button) findViewById(R.id.sensingOn);
             button.setText("START");
             stopSensing(view);
             sensingOn = false;
-        } else {
+        }
+        else
+        {
             Button button = (Button) findViewById(R.id.sensingOn);
             startSensing(view);
             button.setText("STOP");
@@ -115,29 +125,34 @@ public class EnvironmentSensorsActivity extends AppCompatActivity  implements Se
     }
 
     @Override
-    public void onSensorChanged(SensorEvent event) {
-        if (event.sensor.getType() == Sensor.TYPE_AMBIENT_TEMPERATURE) {
+    public void onSensorChanged(SensorEvent event)
+    {
+        if (event.sensor.getType() == Sensor.TYPE_AMBIENT_TEMPERATURE)
+        {
             ambTem = event.values;
             ambTemCheck = true;
             TextView ambTemView = (TextView) findViewById(R.id.ambientTemperature);
             ambTemView.setText("AMBIENT TEMPERATURE [°C] : " + ambTem[0]);
         }
 
-        if (event.sensor.getType() == Sensor.TYPE_LIGHT) {
+        if (event.sensor.getType() == Sensor.TYPE_LIGHT)
+        {
             lig = event.values;
             ligCheck = true;
             TextView ligView = (TextView) findViewById(R.id.light);
             ligView.setText("LIGHT [lx] : " + lig[0]);
         }
 
-        if (event.sensor.getType() == Sensor.TYPE_PRESSURE) {
+        if (event.sensor.getType() == Sensor.TYPE_PRESSURE)
+        {
             pre = event.values;
             preCheck = true;
             TextView preView = (TextView) findViewById(R.id.pressure);
             preView.setText("PRESSURE [hPa] : " + pre[0]);
         }
 
-        if (event.sensor.getType() == Sensor.TYPE_RELATIVE_HUMIDITY) {
+        if (event.sensor.getType() == Sensor.TYPE_RELATIVE_HUMIDITY)
+        {
             relHum = event.values;
             relHumCheck = true;
             TextView relHumView = (TextView) findViewById(R.id.relativeHumidity);
@@ -147,39 +162,47 @@ public class EnvironmentSensorsActivity extends AppCompatActivity  implements Se
     }
 
     @Override
-    public void onAccuracyChanged(Sensor sensor, int accuracy) {
+    public void onAccuracyChanged(Sensor sensor, int accuracy)
+    {
 
     }
 
     @Override
-    public void onBackPressed() {
+    public void onBackPressed()
+    {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
+        if (drawer.isDrawerOpen(GravityCompat.START))
+        {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
+        } else
+        {
             super.onBackPressed();
         }
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(MenuItem item)
+    {
         int id = item.getItemId();
 
-        if (id == R.id.nav_main) {
+        if (id == R.id.nav_main)
+        {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
-        } else if (id == R.id.nav_position_sensors)
+        }
+        else if (id == R.id.nav_position_sensors)
         {
             Intent intent = new Intent(this, PositionSensorsActivity.class);
             startActivity(intent);
-        } else if (id == R.id.nav_environment_sensors)
+        }
+        else if (id == R.id.nav_environment_sensors)
         {
             Intent intent = new Intent(this, EnvironmentSensorsActivity.class);
             startActivity(intent);

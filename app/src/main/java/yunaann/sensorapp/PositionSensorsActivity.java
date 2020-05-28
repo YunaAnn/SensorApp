@@ -51,8 +51,8 @@ public class PositionSensorsActivity extends AppCompatActivity  implements Senso
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle
+                (this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -97,7 +97,6 @@ public class PositionSensorsActivity extends AppCompatActivity  implements Senso
         {
             sensorManager.registerListener(this, proximity, SensorManager.SENSOR_DELAY_GAME);
         }
-
     }
 
     public void stopSensing (View view)
@@ -203,7 +202,6 @@ public class PositionSensorsActivity extends AppCompatActivity  implements Senso
         return true;
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item)
     {
